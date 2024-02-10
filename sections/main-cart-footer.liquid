@@ -17,6 +17,45 @@
   }
 {%- endstyle -%}
 
+document.addEventListener('DOMContentLoaded', function () {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return msie > 0 || trident > 0;
+    }
+
+    if (!isIE()) return;
+
+    const checkoutButton = document.querySelector('#checkout');
+
+    checkoutButton.addEventListener('click', function (event) {
+        // Prevent the default behavior of the button (submitting the form)
+        event.preventDefault();
+
+        // Retrieve the items in the cart
+        const cartItems = document.querySelectorAll('.cart__item');
+
+        // Create a string to store the item names
+        let cartContents = 'Items in Cart:\n';
+
+        // Iterate over each item in the cart and append its name to the cartContents string
+        cartItems.forEach(function(item) {
+            const itemName = item.querySelector('.cart__item-title').innerText;
+            cartContents += `- ${itemName}\n`;
+        });
+
+        // Show an alert with the cart contents
+        alert(cartContents);
+        
+        // Optional: Proceed with the checkout process
+        // You may want to remove this line if you want to keep the alert only
+        document.querySelector('#cart').submit();
+    });
+});
+
+
 <div
   class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
   id="main-cart-footer"
