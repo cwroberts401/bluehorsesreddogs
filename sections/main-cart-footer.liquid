@@ -17,6 +17,7 @@
   }
 {%- endstyle -%}
 
+{% javascript %}
 document.addEventListener('DOMContentLoaded', function () {
     function isIE() {
       const ua = window.navigator.userAgent;
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('#cart').submit();
     });
 });
+{% endjavascript %}
 
 
 <div
