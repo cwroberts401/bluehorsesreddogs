@@ -134,7 +134,8 @@ updateQuantity(line, quantity, name, variantId) {
       if (cartTotalElement) {
         cartTotalElement.textContent = parsedState.total_price;
         const total = parsedState.total_price;
-    const widthPercentage = Math.min(((total/100) / threshold) * 100, 100); // Ensure the width doesn't exceed 100%
+    const widthPercentage = Math.min(((total/100) / threshold) * 100, 100);
+        console.log(widthPercentage)
     freeShipProgressElement.style.width = `${widthPercentage}%`;
       }
 
