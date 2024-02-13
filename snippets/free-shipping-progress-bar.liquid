@@ -23,59 +23,10 @@
     width: 0; /* Initial width, will be updated dynamically */
   }
 </style>
-
 <div id="free-shipping-progress-bar" class="cart-price-container">
-  <div class="cart-price"></div>
+  <div class="cart-price"> {{cart.cart_total}} </div>
   <div class="progress-bar-container">
     <div class="progress-bar"> </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Function to fetch and update cart price
-    function updateCartPrice() {
-      fetch('/cart.js')
-        .then(response => response.json())
-        .then(data => {
-          const cartPrice = data.total_price;
-          // Update the cart price wherever needed on the page
-          document.querySelector('.cart-price').innerText = cartPrice;
-          // Calculate progress for the progress bar
-          const freeShippingThreshold = 100; // Example free shipping threshold
-          const progress = ((cartPrice/100) / freeShippingThreshold) * 100;
-          // Update progress bar width
-          document.querySelector('.progress-bar').style.width = progress + '%';
-        })
-        .catch(error => {
-          console.error('Error fetching cart data:', error);
-        });
-    }
-
-    // Update cart price on page load
-    updateCartPrice();
-
-    // Add event listeners to buttons within cart-item_quantity class
-    var quantityButtons = document.querySelectorAll('.cart-item_quantity button');
-    quantityButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        // Perform action when a quantity button is clicked
-        console.log('Quantity button clicked');
-        // You can add your custom logic here, such as updating cart price
-        updateCartPrice(); // Example: Update cart price when quantity button is clicked
-      });
-    });
-
-    // Add event listeners to all buttons with type="submit"
-    var submitButtons = document.querySelectorAll('button[type="submit"]');
-    submitButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        // Perform action when a submit button is clicked
-        console.log('Submit button clicked');
-        // You can add your custom logic here, such as updating cart price
-        updateCartPrice(); // Example: Update cart price when submit button is clicked
-      });
-    });
-  });
-</script>
 
