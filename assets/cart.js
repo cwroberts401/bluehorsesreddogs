@@ -159,6 +159,7 @@ updateQuantity(line, quantity, name, variantId) {
       }
       this.updateLiveRegions(line, message);
 
+      console.log("parsedState", parsedState)
       // Update total cart price section
       const totalCartPriceElement = document.querySelector('.cart-price');
       totalCartPriceElement.innerText = parsedState.total_price; // Assuming total_price contains the cart total price
