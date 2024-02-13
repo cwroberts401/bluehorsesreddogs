@@ -11,6 +11,7 @@
 <script>
   // Function to update cart total and progress bar
   function updateCartTotal() {
+    console.log("hi")
     fetch('/{{ shop.locale }}/cart.js')
       .then(response => response.json())
       .then(data => {
