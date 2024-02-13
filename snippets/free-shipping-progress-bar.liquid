@@ -10,7 +10,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow for depth */
   }
 
- .progress-bar-container {
+  .progress-bar-container {
     border: 1px solid #ddd; /* Light gray border */
     border-radius: 5px; /* Rounded corners */
     margin-top: 5px; /* Adjust margin as needed */
@@ -23,15 +23,27 @@
     width: 0; /* Initial width, will be updated dynamically */
   }
 </style>
-<script>
-  const widthPercentage = Math.min((({cart.total_price}/100) / threshold) * 100, 100);
-        console.log(widthPercentage)
-    freeShipProgressElement.style.width = `${widthPercentage}%`;
-</script>
+
 <div id="free-shipping-progress-bar" class="cart-price-container">
-  <div id="cart-total" > {{cart.total_price}} </div>
+  <div id="cart-total">{{ cart.total_price }}</div>
   <div class="progress-bar-container">
-    <div id="free-ship-progress" class="free-ship-progress"> </div>
+    <div id="free-ship-progress" class="free-ship-progress"></div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const cartTotal = parseFloat("{{ cart.total_price }}");
+    const freeShippingThreshold = 100; // Adjust this threshold as needed
+    const freeShipProgress = document.getElementById("free-ship-progress");
+    
+    if (cartTotal >= freeShippingThreshold) {
+      freeShipProgress.style.width = "100%";
+    } else {
+      const widthPercentage = (cartTotal / freeShippingThreshold) * 100;
+      freeShipProgress.style.width = `${widthPercentage}%`;
+    }
+  });
+</script>
+
 
