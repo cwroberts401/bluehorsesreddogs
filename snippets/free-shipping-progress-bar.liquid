@@ -27,10 +27,24 @@
 <div id="free-shipping-progress-bar" class="cart-price-container">
   <div id="cart-total">{{ cart.total_price }}</div>
   <div class="progress-bar-container">
-    <div id="free-ship-progress" class="free-ship-progress"></div>
+    <div id="free-ship-progress" class="free-ship-progress"> </div>
   </div>
 </div>
 
-
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const cartTotal = {{ cart.total_price }};
+    const freeShippingThreshold = 100; // Adjust this threshold as needed
+    const freeShipProgress = document.getElementById("free-ship-progress");
+    
+    if (cartTotal >= freeShippingThreshold) {
+      freeShipProgress.style.width = "100%";
+    } else {
+      const widthPercentage = (cartTotal / freeShippingThreshold) * 100;
+      console.log(widthPercentage)
+      freeShipProgress.style.width = `${widthPercentage}%`;
+    }
+  });
+</script>
 
 
