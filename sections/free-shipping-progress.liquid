@@ -1,6 +1,61 @@
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Free Shipping Progress",
+    "settings": [
+      {
+      "type": "number",
+      "id": "free_ship_price",
+      "label": "Free Shipping Cutoff",
+      "default": 50
+      }
+    ]
   }
 {% endschema %}
+
+
+<style>
+  .cart-price-container {
+    background-color: #f3f3f3; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    margin-top: 10px; /* Adjust margin as needed */
+    width: 200px; /* Adjust width as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow for depth */
+  }
+
+  .progress-bar-container {
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 5px; /* Adjust margin as needed */
+  }
+
+  .free-ship-progress {
+    background-color: #b5e2a3; /* Green progress bar color */
+    height: 10px; /* Height of the progress bar */
+    border-radius: 5px; /* Rounded corners */
+    width: 0; /* Initial width, will be updated dynamically */
+  }
+</style>
+
+<div id="free-shipping-progress-bar" class="cart-price-container">
+  <div id="cart-total">{{ cart.total_price }}</div>
+  <div class="progress-bar-container">
+    <div id="free-ship-progress" class="free-ship-progress"> </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const cartTotal = {{ cart.total_price }};
+    const freeShippingThreshold = 100; // Adjust this threshold as needed
+    const freeShipProgress = document.getElementById("free-ship-progress");
+    
+    if (cartTotal >= freeShippingThreshold) {
+      freeShipProgress.style.width = "100%";
+    } else {
+      const widthPercentage = ((cartTotal/100) / freeShippingThreshold) * 100;
+      console.log(widthPercentage)
+      freeShipProgress.style.width = `${widthPercentage}%`;
+    }
+  });
+</script>
