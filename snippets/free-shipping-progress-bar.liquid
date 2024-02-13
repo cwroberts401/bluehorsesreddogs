@@ -33,7 +33,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const cartTotal = parseFloat("{{ cart.total_price }}");
+    const cartTotal = {{ cart.total_price }};
     const freeShippingThreshold = 100; // Adjust this threshold as needed
     const freeShipProgress = document.getElementById("free-ship-progress");
     
