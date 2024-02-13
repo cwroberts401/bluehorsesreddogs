@@ -101,14 +101,15 @@ class CartItems extends HTMLElement {
         selector: '.js-contents',
       },
       {
-        id: 'main-cart-footer',
+        id: 'cart-price-container',
         section: document.getElementById('main-cart-footer').dataset.id,
-        selector: '.js-contents',
+        selector: '.cart-price-container',
       }
     ];
   }
 updateQuantity(line, quantity, name, variantId) {
   this.enableLoading(line);
+  console.log("hh",document.getElementById('main-cart-footer').dataset.id)
 
   const body = JSON.stringify({
     line,
