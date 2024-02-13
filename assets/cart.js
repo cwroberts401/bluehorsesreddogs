@@ -99,7 +99,12 @@ class CartItems extends HTMLElement {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
         selector: '.js-contents',
-      }
+      },
+      {
+        id: 'free-shipping-progress-bar',
+        section: 'free-shipping-progress-bar',
+        selector: '.shopify-section',
+      },
     ];
   }
 updateQuantity(line, quantity, name, variantId) {
@@ -122,17 +127,6 @@ updateQuantity(line, quantity, name, variantId) {
         document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
       const items = document.querySelectorAll('.cart-item');
       
-      const threshold = 100;
-      const cartTotalElement = document.getElementById('cart-total');
-      const freeShipProgressElement = document.getElementById('free-ship-progress');
-      
-      if (cartTotalElement) {
-        cartTotalElement.textContent = parsedState.total_price;
-        const total = parsedState.total_price;
-    const widthPercentage = Math.min(((total/100) / threshold) * 100, 100);
-        console.log(widthPercentage)
-    freeShipProgressElement.style.width = `${widthPercentage}%`;
-      }
 
       if (parsedState.errors) {
         quantityElement.value = quantityElement.getAttribute('value');
