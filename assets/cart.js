@@ -99,11 +99,6 @@ class CartItems extends HTMLElement {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
         selector: '.js-contents',
-      },
-      {
-        id: 'cart-price-container',
-        section: document.getElementById('main-cart-footer').dataset.id,
-        selector: '.cart-price-container',
       }
     ];
   }
@@ -157,11 +152,8 @@ updateQuantity(line, quantity, name, variantId) {
             
 
       this.getSectionsToRender().forEach((section) => {
-        console.log(section.id,section.selector)
         const elementToReplace =
           document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-        console.log(elementToReplace)
-        console.log(parsedState.sections)
         elementToReplace.innerHTML = this.getSectionInnerHTML(
           parsedState.sections[section.section],
           section.selector
