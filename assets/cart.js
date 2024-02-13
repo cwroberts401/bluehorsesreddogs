@@ -99,6 +99,11 @@ class CartItems extends HTMLElement {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
         selector: '.js-contents',
+      },
+      {
+        id: 'main-cart-footer',
+        section: document.getElementById('main-cart-footer').dataset.id,
+        selector: '.js-contents',
       }
     ];
   }
@@ -187,6 +192,7 @@ updateQuantity(line, quantity, name, variantId) {
         trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'));
       }
 
+      console.log("hi")
       publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
     })
     .catch(() => {
