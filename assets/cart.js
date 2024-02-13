@@ -150,8 +150,9 @@ updateQuantity(line, quantity, name, variantId) {
           section.selector
         );
       });
+                  console.log("hya")
+
       const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
-            console.log("hya")
 
       let message = '';
       if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
