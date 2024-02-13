@@ -1,0 +1,12 @@
+<!-- free-shipping-progress-bar.liquid -->
+
+<div class="free-shipping-progress-bar">
+  <div class="progress-bar-wrapper">
+    {% assign cart_total = cart.total_price %}
+    {% assign free_shipping_threshold = 50.00 %} <!-- Set your free shipping threshold -->
+    {% assign progress_percentage = cart_total | divided_by: free_shipping_threshold | times: 100 %}
+
+    <div class="progress-bar" style="width: {{ progress_percentage }}%;"></div>
+  </div>
+  <p class="progress-text">You're {{ progress_percentage }}% there to free shipping!</p>
+</div>
