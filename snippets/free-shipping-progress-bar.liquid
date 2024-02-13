@@ -20,7 +20,7 @@
     background-color: #b5e2a3; /* Green progress bar color */
     height: 10px; /* Height of the progress bar */
     border-radius: 5px; /* Rounded corners */
-    width: 0; /* Initial width, will be updated dynamically */
+    width: `${{{cart.total_price}}}%`; /* Initial width, will be updated dynamically */
   }
 </style>
 <div id="free-shipping-progress-bar" class="cart-price-container">
