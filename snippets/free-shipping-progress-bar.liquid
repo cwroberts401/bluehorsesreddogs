@@ -9,36 +9,8 @@
 </div>
 
 <script>
-  // Function to update cart total and progress bar
-  function updateCartTotal() {
-    console.log("hi")
-    fetch('/{{ shop.locale }}/cart.js')
-      .then(response => console.log(response.json()))
-      .then(data => {
-        const cartTotal = data.total_price;
-        console.log("hi",cartTotal)
-        const freeShippingThreshold = 50.00; // Set your free shipping threshold
-        const progressPercentage = (cartTotal / freeShippingThreshold) * 100;
-
-        // Update progress bar width
-        const progressBar = document.getElementById('progressBar');
-        progressBar.style.width = `${progressPercentage}%`;
-
-        // Update progress text
-        const progressText = document.getElementById('progressText');
-        progressText.innerText = `You're ${progressPercentage}% there to free shipping!`;
-      })
-      .catch(error => {
-        console.error('Error fetching cart data:', error);
-      });
-  }
-
-  // Fetch initial cart total and update progress bar
-  updateCartTotal();
-
-  // Listen for cart update events and update cart total
-  document.addEventListener('cart:updated', function(event) {
-    // Update cart total when cart is updated
-    updateCartTotal();
-  });
+  var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
+  .then(response => response.json())
+  .then(data => { return data });
+  consle.log(data)
 </script>
