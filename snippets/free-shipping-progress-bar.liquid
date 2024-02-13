@@ -1,21 +1,44 @@
 <!-- cart-price-update.liquid -->
 
-<div class="cart-price"></div>
+<style>
+  .cart-price-container {
+    background-color: #f3f3f3; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    margin-top: 10px; /* Adjust margin as needed */
+    width: 200px; /* Adjust width as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow for depth */
+  }
+
+  .progress-bar {
+    background-color: #b5e2a3; /* Green progress bar color */
+    height: 10px; /* Height of the progress bar */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 5px; /* Adjust margin as needed */
+    width: 0; /* Initial width, will be updated dynamically */
+  }
+</style>
+
+<div class="cart-price-container">
+  <div class="cart-price"></div>
+  <div class="progress-bar"></div>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Function to fetch and update cart price
     function updateCartPrice() {
-      var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
-      .then(response => response.json())
-      .then(data => { console.log(data) });
       fetch('/cart.js')
         .then(response => response.json())
         .then(data => {
           const cartPrice = data.total_price;
-          console.log(cartPrice)
           // Update the cart price wherever needed on the page
           document.querySelector('.cart-price').innerText = cartPrice;
+          // Calculate progress for the progress bar
+          const freeShippingThreshold = 100; // Example free shipping threshold
+          const progress = (cartPrice / freeShippingThreshold) * 100;
+          // Update progress bar width
+          document.querySelector('.progress-bar').style.width = progress + '%';
         })
         .catch(error => {
           console.error('Error fetching cart data:', error);
@@ -26,7 +49,7 @@
     updateCartPrice();
 
     // Add event listeners to buttons within cart-item_quantity class
-    var quantityButtons = document.querySelectorAll('.cart-item__quantity button');
+    var quantityButtons = document.querySelectorAll('.cart-item_quantity button');
     quantityButtons.forEach(function(button) {
       button.addEventListener('click', function(event) {
         // Perform action when a quantity button is clicked
@@ -48,3 +71,4 @@
     });
   });
 </script>
+
