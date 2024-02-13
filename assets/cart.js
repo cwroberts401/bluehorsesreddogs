@@ -126,11 +126,16 @@ updateQuantity(line, quantity, name, variantId) {
       const quantityElement =
         document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
       const items = document.querySelectorAll('.cart-item');
+      
+      const threshold = 100;
       const cartTotalElement = document.getElementById('cart-total');
       const freeShipProgress = document.getElementById('free-ship-progress');
       
       if (cartTotalElement) {
-        cartTotalElement.textContent = parsedState.total_price; // Assuming 'total_price' is the property in parsedState that holds the updated total price
+        cartTotalElement.textContent = parsedState.total_price;
+        const total = parsedState.total_price;
+    const widthPercentage = Math.min((total / threshold) * 100, 100); // Ensure the width doesn't exceed 100%
+    freeShipProgressElement.style.width = `${widthPercentage}%`;
       }
 
       if (parsedState.errors) {
