@@ -336,7 +336,7 @@
         {%- endif -%}
       </a>
       <div>
-        <span>{{ 'sections.header.cart' | t: total: cart.item_total }}</span>
+        <span>{{ cart.total_price | money_with_currency }}</span>
       </div>
     </div>
   </header>
