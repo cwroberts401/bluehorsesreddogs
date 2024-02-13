@@ -1,12 +1,31 @@
-<!-- free-shipping-progress-bar.liquid -->
+<!-- cart-total-progress-bar.liquid -->
 
-<div class="free-shipping-progress-bar">
+<div class="cart-total-progress-bar">
   <div class="progress-bar-wrapper">
-    {% assign cart_total = cart.total_price %}
-    {% assign free_shipping_threshold = 50.00 %} <!-- Set your free shipping threshold -->
-    {% assign progress_percentage = cart_total | divided_by: free_shipping_threshold | times: 100 %}
-
-    <div class="progress-bar" style="width: {{ progress_percentage }}%;"></div>
+    <div class="progress-bar" id="progressBar"></div>
   </div>
-  <p class="progress-text">You're {{ progress_percentage }}% there to free shipping!</p>
+  <p class="progress-text" id="progressText"></p>
 </div>
+
+<script>
+  // Fetch cart data and update progress bar
+  fetch('/{{ shop.locale }}/cart.js')
+    .then(response => response.json())
+    .then(data => {
+      const cartTotal = data.total_price;
+      const freeShippingThreshold = 50.00; // Set your free shipping threshold
+      const progressPercentage = (cartTotal / freeShippingThreshold) * 100;
+      
+      // Update progress bar width
+      const progressBar = document.getElementById('progressBar');
+      progressBar.style.width = `${progressPercentage}%`;
+
+      // Update progress text
+      const progressText = document.getElementById('progressText');
+      progressText.innerText = `You're ${progressPercentage}% there to free shipping!`;
+    })
+    .catch(error => {
+      console.error('Error fetching cart data:', error);
+    });
+</script>
+
