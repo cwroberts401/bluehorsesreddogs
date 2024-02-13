@@ -104,7 +104,6 @@ class CartItems extends HTMLElement {
   }
 updateQuantity(line, quantity, name, variantId) {
   this.enableLoading(line);
-  console.log("hh",document.getElementById('main-cart-footer').dataset.id)
 
   const body = JSON.stringify({
     line,
