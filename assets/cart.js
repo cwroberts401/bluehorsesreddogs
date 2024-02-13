@@ -141,6 +141,8 @@ updateQuantity(line, quantity, name, variantId) {
       if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
       if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
+            console.log("hi")
+
       this.getSectionsToRender().forEach((section) => {
         const elementToReplace =
           document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
@@ -152,7 +154,6 @@ updateQuantity(line, quantity, name, variantId) {
       });
 
       const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
-      console.log(updatedValue)
 
       let message = '';
       if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
