@@ -33,14 +33,14 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const cartTotal = {{ cart.total_price }};
+    const cartTotal = {{ cart.total_price }}/100;
     const freeShippingThreshold = 100; // Adjust this threshold as needed
     const freeShipProgress = document.getElementById("free-ship-progress");
     
     if (cartTotal >= freeShippingThreshold) {
       freeShipProgress.style.width = "100%";
     } else {
-      const widthPercentage = ((cartTotal/100) / freeShippingThreshold) * 100;
+      const widthPercentage = ((cartTotal) / freeShippingThreshold) * 100;
       console.log(widthPercentage)
       freeShipProgress.style.width = `${widthPercentage}%`;
     }
