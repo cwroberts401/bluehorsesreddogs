@@ -126,10 +126,12 @@ updateQuantity(line, quantity, name, variantId) {
       const quantityElement =
         document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
       const items = document.querySelectorAll('.cart-item');
-      const cartTotalElement = document.getElementById('cart-total'); // Replace 'cart-total' with the actual ID or class of the total price element
-
-      if (cartTotalElement) {
-        cartTotalElement.textContent = parsedState.total_price; // Assuming 'total_price' is the property in parsedState that holds the updated total price
+      const cartTotalElement = document.getElementById('cart-total');
+      const freeShipProgress = document.getElementById('free-ship-progress');
+      
+      if (cartTotalElement && freeShipProgress) {
+        cartTotalElement.textContent = parsedState.total_price;
+        freeShipProgress.textContent = parsedState.total_price;
       }
 
       if (parsedState.errors) {
