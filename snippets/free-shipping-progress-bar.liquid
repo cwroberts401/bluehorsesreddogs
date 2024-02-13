@@ -10,30 +10,25 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow for depth */
   }
 
+ .progress-bar-container {
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 5px; /* Adjust margin as needed */
+  }
+
   .progress-bar {
     background-color: #b5e2a3; /* Green progress bar color */
     height: 10px; /* Height of the progress bar */
     border-radius: 5px; /* Rounded corners */
-    margin-top: 5px; /* Adjust margin as needed */
     width: 0; /* Initial width, will be updated dynamically */
-    z-index:5;
-  }
-  .progress-bar-bg {
-    background-color: lightgray; /* Green progress bar color */
-    height: 10px; /* Height of the progress bar */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: -10px; /* Adjust margin as needed */
-    width: 100%; /* Initial width, will be updated dynamically */
-    z-index:1;
   }
 </style>
 
 <div class="cart-price-container">
-  <div class="cart-price"> </div>
-  <div class="progress-bar"> </div>
-  <div class="progress-bar-bg"> </div>
-
-  
+  <div class="cart-price"></div>
+  <div class="progress-bar-container">
+    <div class="progress-bar"></div>
+  </div>
 </div>
 
 <script>
