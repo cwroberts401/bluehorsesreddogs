@@ -41,6 +41,7 @@
       freeShipProgress.style.width = "100%";
     } else {
       const widthPercentage = (cartTotal / freeShippingThreshold) * 100;
+      console.log(widthPercentage)
       freeShipProgress.style.width = `${widthPercentage}%`;
     }
   });
