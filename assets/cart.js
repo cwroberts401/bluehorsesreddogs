@@ -129,7 +129,7 @@ updateQuantity(line, quantity, name, variantId) {
       
       const threshold = 100;
       const cartTotalElement = document.getElementById('cart-total');
-      const freeShipProgress = document.getElementById('free-ship-progress');
+      const freeShipProgressElement = document.getElementById('free-ship-progress');
       
       if (cartTotalElement) {
         cartTotalElement.textContent = parsedState.total_price;
