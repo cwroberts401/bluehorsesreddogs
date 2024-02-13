@@ -132,7 +132,7 @@ updateQuantity(line, quantity, name, variantId) {
         this.updateLiveRegions(line, parsedState.errors);
         return;
       }
-      console.log(parsedState.total_price)
+      console.log(parsedState.sections)
 
 
       this.classList.toggle('is-empty', parsedState.item_count === 0);
