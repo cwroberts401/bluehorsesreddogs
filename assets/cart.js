@@ -146,7 +146,6 @@ updateQuantity(line, quantity, name, variantId) {
           document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
         console.log(elementToReplace)
         elementToReplace.innerHTML = this.getSectionInnerHTML(
-          console.log(parsedState.sections)
           parsedState.sections[section.section],
           section.selector
         );
