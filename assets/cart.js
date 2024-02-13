@@ -151,6 +151,8 @@ updateQuantity(line, quantity, name, variantId) {
         );
       });
       const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
+            console.log("hya")
+
       let message = '';
       if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
         if (typeof updatedValue === 'undefined') {
@@ -161,8 +163,6 @@ updateQuantity(line, quantity, name, variantId) {
       }
       this.updateLiveRegions(line, message);
 
-      // Update total cart price section
-      console.log("hya")
 
       const lineItem =
         document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
