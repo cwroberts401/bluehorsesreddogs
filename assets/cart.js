@@ -141,9 +141,10 @@ updateQuantity(line, quantity, name, variantId) {
       if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
       if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
-            console.log("hi")
+            
 
       this.getSectionsToRender().forEach((section) => {
+        console.log(section.id,section.selector)
         const elementToReplace =
           document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
         console.log(elementToReplace)
