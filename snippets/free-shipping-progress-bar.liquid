@@ -21,15 +21,26 @@
     // Update cart price on page load
     updateCartPrice();
 
-    // Listen for changes to cart quantity inputs
-    const quantityInputs = document.querySelectorAll('.quantity-button');
-    quantityInputs.forEach(input => {
-      input.addEventListener('change', function() {
-        // When cart quantity changes, update cart price
-        updateCartPrice();
+    // Add event listeners to buttons within cart-item_quantity class
+    var quantityButtons = document.querySelectorAll('.cart-item_quantity button');
+    quantityButtons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        // Perform action when a quantity button is clicked
+        console.log('Quantity button clicked');
+        // You can add your custom logic here, such as updating cart price
+        updateCartPrice(); // Example: Update cart price when quantity button is clicked
       });
     });
 
-    // You can add more event listeners or triggers for other cart changes here
+    // Add event listeners to all buttons with type="submit"
+    var submitButtons = document.querySelectorAll('button[type="submit"]');
+    submitButtons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        // Perform action when a submit button is clicked
+        console.log('Submit button clicked');
+        // You can add your custom logic here, such as updating cart price
+        updateCartPrice(); // Example: Update cart price when submit button is clicked
+      });
+    });
   });
 </script>
