@@ -103,7 +103,7 @@ class CartItems extends HTMLElement {
       {
         id: 'cart-total-price',
         section: 'total-price',
-        selector: 'cart-price',
+        selector: '.js-contents',
       }
     ];
   }
