@@ -100,6 +100,11 @@ class CartItems extends HTMLElement {
         section: document.getElementById('main-cart-footer').dataset.id,
         selector: '.js-contents',
       },
+      {
+        id: 'cart-total-price',
+        section: 'free-shipping-progress-bar',
+        selector: 'progress-bar'
+      }
     ];
   }
 
