@@ -163,8 +163,6 @@ updateQuantity(line, quantity, name, variantId) {
 
       // Update total cart price section
       console.log("hya")
-      const totalCartPriceElement = document.querySelector('.cart-price');
-      totalCartPriceElement.innerText = parsedState.total_price; // Assuming total_price contains the cart total price
 
       const lineItem =
         document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
