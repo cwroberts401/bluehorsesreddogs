@@ -102,7 +102,7 @@ class CartItems extends HTMLElement {
       },
       {
         id: 'cart-total-price',
-        section: 'free-shipping-progress-bar',
+        section: 'total-price',
         selector: 'cart-price',
       }
     ];
@@ -132,7 +132,7 @@ updateQuantity(line, quantity, name, variantId) {
         this.updateLiveRegions(line, parsedState.errors);
         return;
       }
-      console.log(parsedState)
+      console.log(sections)
 
 
       this.classList.toggle('is-empty', parsedState.item_count === 0);
