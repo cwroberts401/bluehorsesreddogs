@@ -161,7 +161,7 @@ updateQuantity(line, quantity, name, variantId) {
         const elementToReplace =
           document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
         console.log(elementToReplace)
-        console.log(this.getSectionInnerHTML)
+        console.log(parsedState.sections)
         elementToReplace.innerHTML = this.getSectionInnerHTML(
           parsedState.sections[section.section],
           section.selector
