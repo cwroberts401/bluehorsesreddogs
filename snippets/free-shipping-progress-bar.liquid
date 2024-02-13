@@ -9,6 +9,7 @@
 </div>
 
 <!-- cart-price-update.liquid -->
+{% assign free_shipping_threshold = settings.free_shipping_threshold | money %}
 
 <div class="cart-price"></div>
 <div>{{ free_shipping_threshold }}</div>
