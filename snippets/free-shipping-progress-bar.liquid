@@ -8,8 +8,38 @@
   <p class="progress-text" id="progressText"></p>
 </div>
 
+<!-- cart-price-update.liquid -->
+
+<div class="cart-price"></div>
+
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch and update cart price
+    function updateCartPrice() {
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(data => {
+          const cartPrice = data.total_price;
+          // Update the cart price wherever needed on the page
+          document.querySelector('.cart-price').innerText = cartPrice;
+        })
+        .catch(error => {
+          console.error('Error fetching cart data:', error);
+        });
+    }
 
+    // Update cart price on page load
+    updateCartPrice();
 
-  
+    // Listen for changes to cart quantity inputs
+    const quantityInputs = document.querySelectorAll('.cart-quantity-input');
+    quantityInputs.forEach(input => {
+      input.addEventListener('change', function() {
+        // When cart quantity changes, update cart price
+        updateCartPrice();
+      });
+    });
+
+    // You can add more event listeners or triggers for other cart changes here
+  });
 </script>
