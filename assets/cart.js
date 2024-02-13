@@ -133,9 +133,7 @@ updateQuantity(line, quantity, name, variantId) {
       
       if (cartTotalElement && freeShipProgress) {
         cartTotalElement.textContent = parsedState.total_price;
-        const total = parsedState.total_price;
-        const widthPercentage = Math.min((total / threshold) * 100, 100); // Ensure the width doesn't exceed 100%
-        freeShipProgress.style.width = `${widthPercentage}%`;
+
       }
 
       if (parsedState.errors) {
