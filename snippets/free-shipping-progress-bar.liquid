@@ -36,7 +36,7 @@
           document.querySelector('.cart-price').innerText = cartPrice;
           // Calculate progress for the progress bar
           const freeShippingThreshold = 100; // Example free shipping threshold
-          const progress = (cartPrice / freeShippingThreshold) * 100;
+          const progress = ((cartPrice/100) / freeShippingThreshold) * 100;
           // Update progress bar width
           document.querySelector('.progress-bar').style.width = progress + '%';
         })
