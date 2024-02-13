@@ -99,11 +99,6 @@ class CartItems extends HTMLElement {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
         selector: '.js-contents',
-      },
-      {
-        id: 'cart-total-price',
-        section: 'total-price',
-        selector: '.js-contents',
       }
     ];
   }
