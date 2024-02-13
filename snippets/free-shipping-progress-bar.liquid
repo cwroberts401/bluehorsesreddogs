@@ -15,6 +15,7 @@
       .then(response => response.json())
       .then(data => {
         const cartTotal = data.total_price;
+        console.log("hi",cartTotal)
         const freeShippingThreshold = 50.00; // Set your free shipping threshold
         const progressPercentage = (cartTotal / freeShippingThreshold) * 100;
 
