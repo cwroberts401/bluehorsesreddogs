@@ -10,6 +10,7 @@
         .then(response => response.json())
         .then(data => {
           const cartPrice = data.total_price;
+          console.log(cartPrice)
           // Update the cart price wherever needed on the page
           document.querySelector('.cart-price').innerText = cartPrice;
         })
