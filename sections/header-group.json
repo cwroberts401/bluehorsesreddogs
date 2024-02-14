@@ -45,7 +45,7 @@
       }
     },
     "free-shipping-progress": {
-      "type": "header",
+      "type": "free-shipping-progress",
       "settings": {
       }
     }
