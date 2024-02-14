@@ -13,3 +13,7 @@
           <div id="free-ship-progress" class="free-ship-progress" style="width: {{ cart.total_price | divided_by: shipping_threshold_dollars }}%"> </div>
         </div>
       </div>
+
+      <script>
+        console.log({{ cart.total_price | divided_by: shipping_threshold_dollars }})
+      </script>
