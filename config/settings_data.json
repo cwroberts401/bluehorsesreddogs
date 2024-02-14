@@ -117,7 +117,7 @@
     "show_cart_note": true,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
-    "free_shipping_threshold": "40",
+    "free_shipping_threshold": 101,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
