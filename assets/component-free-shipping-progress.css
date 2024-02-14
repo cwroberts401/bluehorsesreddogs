@@ -7,6 +7,10 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow for depth */
   }
 
+  .free-shipping-empty-cart {
+    
+  }
+
   .progress-bar-container {
     border: 1px solid #ddd; /* Light gray border */
     border-radius: 5px; /* Rounded corners */
