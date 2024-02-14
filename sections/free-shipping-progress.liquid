@@ -4,13 +4,13 @@
       <div id="free-shipping-progress">
         <p>{{ settings.free_shipping_threshold }}</p>
         <div class="cart-price-container">
-          <p>{{ cart.total_price }}{{ shipping_threshold_dollars }}{{ cart.total_price |divided_by: settings.free_shipping_threshold }}</p>
+          <p>{{ cart.total_price }}{{ shipping_threshold_dollars }}</p>
             {% if free_shipping <= 0 %}
               <div id="cart-total">You're order ships free!</div>
             {% else %}
               <div id="cart-total">You're {{ free_shipping | money }} away from free shipping</div>
             {% endif %}
           <div class="progress-bar-container"> </div>
-          <div id="free-ship-progress" class="free-ship-progress" style="width: {{ cart.total_price | divided_by: shipping_threshold_dollars }}%"> </div>
+          <div id="free-ship-progress" class="free-ship-progress" style="width: {{ cart.total_price |divided_by: settings.free_shipping_threshold }}%"> </div>
         </div>
       </div>
