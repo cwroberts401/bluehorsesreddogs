@@ -10,6 +10,6 @@
               <div id="cart-total">You're {{ free_shipping | money }} away from free shipping</div>
             {% endif %}
           <div class="progress-bar-container"> </div>
-          <div id="free-ship-progress" class="free-ship-progress" style="width: {{ free_shipping }}%"> </div>
+          <div id="free-ship-progress" class="free-ship-progress" style="width: {{ cart.total_price | divided_by: shipping_threshold_dollars | times: 10 }}%"> </div>
         </div>
       </div>
