@@ -339,12 +339,17 @@
       <div>
         <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
       </div>
-      {%- assign shipping_threshold_dollars = settings.free_shipping_threshold | times: 100 -%}
+{%- assign shipping_threshold_dollars = settings.free_shipping_threshold | times: 100 -%}
+{%- assign free_shipping = shipping_threshold_dollars | minus: cart.total_price -%}
+
       <div id="free-shipping-progress">
         <p>{{ settings.free_shipping_threshold }}</p>
         <div class="cart-price-container">
-            
-          <div id="cart-total">You're {{ shipping_threshold_dollars | minus: cart.total_price | money }} away from free shipping</div>
+            {% if free_shipping <= 0 %}
+              <div id="cart-total">You're order ships free!</div>
+            {% else %}
+              <div id="cart-total">You're {{ free_shipping }} away from free shipping</div>
+            {% endif %}
           <div class="progress-bar-container"> </div>
           <div id="free-ship-progress" class="free-ship-progress"> </div>
         </div>
