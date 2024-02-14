@@ -7,7 +7,7 @@
             {% if free_shipping <= 0 %}
               <div id="cart-total">You're order ships free!</div>
             {% else %}
-              <div id="cart-total">You're {{ free_shipping }} away from free shipping</div>
+              <div id="cart-total">You're {{ free_shipping | money }} away from free shipping</div>
             {% endif %}
           <div class="progress-bar-container"> </div>
           <div id="free-ship-progress" class="free-ship-progress"> </div>
