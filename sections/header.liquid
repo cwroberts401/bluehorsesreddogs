@@ -343,7 +343,6 @@
 {%- assign free_shipping = shipping_threshold_dollars | minus: cart.total_price -%}
 
       <div id="free-shipping-progress">
-        <p>{{ settings.free_shipping_threshold }}</p>
         <div class="cart-price-container">
             {% if free_shipping <= 0 %}
               <div id="cart-total">You're order ships free!</div>
