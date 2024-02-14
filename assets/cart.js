@@ -102,7 +102,7 @@ class CartItems extends HTMLElement {
       },
       {
         id: 'free-shipping-progress-bar',
-        section: 'free-shipping-progress-bar',
+        section: 'free-shipping-progress',
         selector: '.shopify-section',
       },
     ];
