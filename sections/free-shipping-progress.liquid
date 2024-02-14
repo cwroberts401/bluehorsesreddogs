@@ -2,6 +2,11 @@
 {%- assign free_shipping = shipping_threshold_dollars | minus: cart.total_price -%}
 
       <div id="free-shipping-progress">
+        {% if cart == empty %}
+        <div>
+          <div id="cart-total">Orders over {{ settings.free_shipping_threshold | money }} ship free!</div>
+        </div>
+        {% else %}
         <div class="cart-price-container">
             {% if free_shipping <= 0 %}
               <div id="cart-total">You're order ships free!</div>
@@ -12,4 +17,5 @@
             <div id="free-ship-progress" class="free-ship-progress" style="width: {{ cart.total_price | divided_by: settings.free_shipping_threshold | at_most: 100 }}%"> </div>
           </div>
         </div>
+        {% endif %}
       </div>
