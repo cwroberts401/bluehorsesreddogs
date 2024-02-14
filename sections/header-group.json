@@ -43,10 +43,16 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "free-shipping-progress": {
+      "type": "header",
+      "settings": {
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "free-shipping-progress"
   ]
 }
