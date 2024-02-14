@@ -60,7 +60,7 @@ class CartNotification extends HTMLElement {
         id: 'cart-icon-bubble',
       },
       {
-        id: 'free-shipping-progress-bar',
+        id: 'free-shipping-progress',
       },
     ];
   }
