@@ -1,6 +1,7 @@
 {%- assign shipping_threshold_dollars = settings.free_shipping_threshold | times: 100 -%}
 {%- assign free_shipping = shipping_threshold_dollars | minus: cart.total_price -%}
 
+
       <div id="free-shipping-progress">
         <p>{{ settings.free_shipping_threshold }}</p>
         <div class="cart-price-container">
@@ -10,6 +11,6 @@
               <div id="cart-total">You're {{ free_shipping | money }} away from free shipping</div>
             {% endif %}
           <div class="progress-bar-container"> </div>
-          <div id="free-ship-progress" class="free-ship-progress" style="width: {{ cart.total_price |divided_by: settings.free_shipping_threshold }}%"> </div>
+          <div id="free-ship-progress" class="free-ship-progress" style="width: {{ cart.total_price |divided_by: settings.free_shipping_threshold | at_most : 100 }}%"> </div>
         </div>
       </div>
