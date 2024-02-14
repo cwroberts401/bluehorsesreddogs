@@ -142,7 +142,6 @@ updateQuantity(line, quantity, name, variantId) {
       if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
       if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
-            
 
       this.getSectionsToRender().forEach((section) => {
         const elementToReplace =
@@ -178,7 +177,6 @@ updateQuantity(line, quantity, name, variantId) {
         trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'));
       }
 
-      console.log("hi")
       publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
     })
     .catch(() => {
