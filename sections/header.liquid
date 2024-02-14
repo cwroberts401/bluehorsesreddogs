@@ -342,7 +342,7 @@
 {%- assign shipping_threshold_dollars = settings.free_shipping_threshold | times: 100 -%}
 {%- assign free_shipping = shipping_threshold_dollars | minus: cart.total_price -%}
 
-      <div id="free-shipping-empty-cart">
+      <div id="cart-price-container">
         {% if cart == empty %}
         <div>
           <div id="cart-total">Orders over {{ shipping_threshold_dollars | money }} ship free!</div>
