@@ -4,7 +4,7 @@
       <div id="free-shipping-progress">
         <p>{{ settings.free_shipping_threshold }}</p>
         <div class="cart-price-container">
-          <p>{{ cart.total_price | divided_by: shipping_threshold_dollars }}</p>
+          <p>{{ cart.total_price }}{{ shipping_threshold_dollars }}</p>
             {% if free_shipping <= 0 %}
               <div id="cart-total">You're order ships free!</div>
             {% else %}
